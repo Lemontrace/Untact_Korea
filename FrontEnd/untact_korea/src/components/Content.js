@@ -5,6 +5,9 @@ import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
 import KContent from "./KContent";
 import plane from "../styles/realplane.png";
+import Toggle from 'react-toggle'
+import { FcCloseUpMode, FcOldTimeCamera } from "react-icons/fc";
+import "react-toggle/style.css" 
 
 export default function Content() {
   const update = () => {
@@ -20,6 +23,9 @@ export default function Content() {
   },[]);
 
   const [region, setRegion] = useState("경기도");
+  const [filterValue, setFilter] = useState(true);
+
+  const f = filterValue ? "문화 축제" : "관광지";
 
   return (
     <main className={"content"}>
@@ -30,7 +36,29 @@ export default function Content() {
           </div>
         </center>
         <div id="full-map" className="full-map"></div>
+        <label>
+          <Toggle
+            defaultChecked={filterValue}
+            icons={{
+              checked: <FcCloseUpMode/>,
+              unchecked: <FcOldTimeCamera/>,
+            }}
+            onChange={() => {
+              if(filterValue == false){
+                console.log("now true!");
+                setFilter(true);
+              }
+              else {
+                console.log("now false!");
+                setFilter(false);
+              }
+            }} />
+          <div> 
+            {f}
+          </div>
+        </label>
       </div>
+
 
       <Controller>
         <Scene duration={1000}>
@@ -53,7 +81,7 @@ export default function Content() {
         
         </Scene>
       </Controller>
-      <KContent place={region}/>
+      <KContent place={region} filter={filterValue}/>
       <div id="history">
         <h2>내가 다녀간 장소</h2>
         <div className="histories">
