@@ -12,7 +12,7 @@ export function MapKorea(props) {
                 id={"map"} // default: react-naver-map
                 style={{
                     width: '100%', // 네이버지도 가로 길이
-                    height: 600, // 네이버지도 세로 길이
+                    height: 1000, // 네이버지도 세로 길이
 
                 }}
                 defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
@@ -47,7 +47,7 @@ export function MapKorea(props) {
             defaultCenter={{ lat: 37.554722, lng: 126.990833 }}
             zoom={8}
             >
-            
+
             </NaverMap>
         )
     }
