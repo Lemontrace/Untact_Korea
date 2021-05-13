@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { NaverMap, Marker } from "react-naver-maps";
 
 
 export function MapKorea(props) {
@@ -17,8 +16,7 @@ export function MapKorea(props) {
             zoom: 10
         })
 
-        markerloc.map((m, l) => {
-            // console.log(m);
+        markerloc.map((m) => {
             createMarkerandViewer(map, navermaps, m)
         })
     })
