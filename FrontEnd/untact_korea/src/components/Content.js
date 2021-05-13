@@ -1,16 +1,23 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
 
+import {useEffect} from "react";
+
 export default function Content() {
+
+  useEffect(()=>{
+    d3_korea_map('#full-map')
+  })
+
   return (
     <main className={"content"}>
       <div className="maps">
         <div id="full-map">
-          <script>
+          {/* <script>
             function initialize(){
             d3_korea_map('#full-map')
           }
-          </script>
+          </script> */}
         </div>
         <div className="description">
 
