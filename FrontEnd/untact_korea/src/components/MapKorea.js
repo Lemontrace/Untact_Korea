@@ -13,12 +13,12 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(37.4666805, 126.8984147),
-            zoom: 9
+            center: new navermaps.LatLng(37.3666805, 126.8984147),
+            zoom: 10
         })
 
         markerloc.map((m, l) => {
-            console.log(m);
+            // console.log(m);
             createMarkerandViewer(map, navermaps, m)
         })
     })
@@ -34,10 +34,12 @@ const createString = (place) =>{
     return [
     '<div class="iw_inner">',
     '   <h3>', place.축제명, '</h3>',
+    '   <iframe width="400" height="240" src="https://www.youtube.com/embed/gM_yCmE8snY" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     '   <p>', place.장소, '<br />',
             place.축제내용, '<br />',
     '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
     '   </p>',
+    
     '</div>'
     ].join('');
 }
@@ -49,6 +51,7 @@ const createMarkerandViewer = (map, navermaps, place) => {
         map: map,
         position: mplace,
         title: place.축제명,
+        animation: navermaps.Animation.DROP
     });
 
     let infowindow = new navermaps.InfoWindow({
@@ -64,12 +67,8 @@ const createMarkerandViewer = (map, navermaps, place) => {
         }
     });
 
-    navermaps.Event.addListener(marker, "click", function(e) {
-        if (infowindow.getMap()) {
-            infowindow.close();
-        } else {
-            infowindow.open(map, marker);
-        }
+    navermaps.Event.addListener(marker, "rightclick", function(e) {
+        console.log("hi");
     });
 
 }
