@@ -103,7 +103,7 @@ export default function Content() {
         HEIGHT = window.innerHeight*0.65;
         WIDTH = window.innerWidth;
   
-        projection = d3.geoMercator().translate([WIDTH*0.36, HEIGHT / 2]);
+        projection = d3.geoMercator().translate([WIDTH*0.33, HEIGHT / 2]);
         path = d3.geoPath().projection(projection);
   
         svg = d3.select(MAP_CONTAINER_ID).append("svg")

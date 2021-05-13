@@ -15,13 +15,21 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
 
-        let idx = 5;
-        if (markerloc[0].지역 == '세종특별자치시') {
-            idx = 0;
+        let x, y;
+        if (markerloc.length == 0) {
+            x = 37.474331;
+            y = 126.868457;
+        } else if (markerloc[0].지역 == '세종특별자치시' 
+                    || markerloc[0].지역 == '광주광역시') {
+            x = markerloc[0].위도;
+            y = markerloc[0].경도;
+        } else {
+            x = markerloc[5].위도;
+            y = markerloc[5].경도;
         }
 
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[idx].위도, markerloc[idx].경도),
+            center: new navermaps.LatLng(x, y),
             zoom: 9
         });
 
@@ -43,12 +51,16 @@ export function MapKorea(props) {
 }
 
 const createString = (place, videoId) =>{
+    let description = place.축제내용;
+    if (description.length > 35) {
+        description = description.substr(0, 32) + "...";
+    }
     return [
         '<div class="iw_inner">',
         '   <h3>', place.축제명, '</h3>',
         '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         '   <p>', place.장소, '<br />',
-                place.축제내용, '<br />',
+                description, '<br />',
         '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
         '   </p>',
         
