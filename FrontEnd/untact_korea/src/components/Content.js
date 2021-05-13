@@ -1,12 +1,13 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
 
-function Content() {
+export default function Content() {
   return (
     <main>
+      <div id="smap"></div>
       <script>
         function initialize(){
-            d3_korea_map('#map')
+          d3_korea_map('#smap')
         }
       </script>
     </main>
@@ -29,8 +30,6 @@ function d3_korea_map(_mapContainerId){
       projection = d3.geoMercator().translate([WIDTH / 2.5, HEIGHT / 2]);
       path = d3.geoPath().projection(projection);
 
-      d3.select(MAP_CONTAINER_ID).html("");
-
       svg = d3.select(MAP_CONTAINER_ID).append("svg")
           .attr("width", WIDTH)
           .attr("height", HEIGHT);
@@ -52,18 +51,16 @@ function d3_korea_map(_mapContainerId){
           map.selectAll("path")
               .data(features)
               .enter().append( "path")
-              .attr("class", function(d) { console.log(d);
-                  return "municipality c " + d.properties.code;})
+              .attr("class", function(d) { return "municipality c " + d.properties.code;})
               .attr("d", path)
               .on("click", onclick)
       });
   }
 
-  create();
-
   function onclick(d){
     console.log(d3.select(this)._groups[0][0].__data__.properties.name);
   }
-}
 
-export default Content;
+  d3.select("#smap").html("");
+  create(); 
+}

@@ -8,6 +8,8 @@ import Content from "./components/Content";
 import {KContent} from "./components/KContent";
 import './styles/Content.css'
 import {RenderAfterNavermapsLoaded} from 'react-naver-maps';
+import * as d3 from 'd3';
+import * as topojson from "topojson";
 
 
 ReactDOM.render(
