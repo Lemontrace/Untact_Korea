@@ -57,6 +57,8 @@ const createMarkerandViewer = (map, navermaps, place) => {
         map: map,
         position: mplace,
         title: place.축제명,
+        splace: place.장소,
+        detail: place.축제내용,
         animation: navermaps.Animation.DROP
     });
 
@@ -71,6 +73,7 @@ const createMarkerandViewer = (map, navermaps, place) => {
             infowindow.close();
         } else {
             infowindow.open(map, marker);
+            console.log("mmm: ", marker);
         }
     });
 
