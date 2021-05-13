@@ -17,11 +17,6 @@ export default function Content() {
         <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
       </div>
 
-      <div className="local-map-border">
-        <div className="local-map">
-          <KContent/>
-        </div>
-      </div>
     </main>
   )
   

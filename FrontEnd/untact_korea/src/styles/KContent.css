@@ -1,0 +1,11 @@
+.local-map-border {
+    margin: 100px 5% 0 5%;
+    padding: 24px;
+    background-color: #F8FFA7;
+}
+
+.local-map {
+    width: 100%;
+    height: 600px;
+    background-color: white;
+}
