@@ -15,15 +15,12 @@ function Content() {
 }
 
 function d3_korea_map(_mapContainerId){
-  console.log(1);
-  var WIDTH, HEIGHT,
-      MAP_CONTAINER_ID = _mapContainerId,
-      KOREA_PROVINCE_OBJECT = 'skorea_provinces_2018_geo';
+  let WIDTH, HEIGHT;
+  const MAP_CONTAINER_ID = _mapContainerId;
+  const KOREA_PROVINCE_OBJECT = 'skorea_provinces_2018_geo';
 
-  var projection, path, svg,
-      geoJson, features, bounds, center,
-      map;
-  var KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
+  let projection, path, svg, geoJson, features, bounds, center, map;
+  const KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
 
   function create(){
       HEIGHT = window.innerHeight;
@@ -47,8 +44,8 @@ function d3_korea_map(_mapContainerId){
           bounds = d3.geoBounds(geoJson);
           center = d3.geoCentroid(geoJson);
 
-          var distance = d3.geoDistance(bounds[0], bounds[1]);
-          var scale = HEIGHT / distance / Math.sqrt(2) * 1.2;
+          const distance = d3.geoDistance(bounds[0], bounds[1]);
+          const scale = HEIGHT / distance / Math.sqrt(2) * 1.2;
 
           projection.scale(scale).center(center);
 
