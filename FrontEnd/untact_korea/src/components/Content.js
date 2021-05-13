@@ -1,6 +1,8 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
 import React, {useEffect, useState} from "react";
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 import KContent from "./KContent";
 
 export default function Content() {
@@ -14,10 +16,27 @@ export default function Content() {
     <main className={"content"}>
       <div id="full-map"></div>
 
-      <div className="plane-animation">
-        <img className={"plane"} src="./plane.svg" alt="plane"/>
-        <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
-      </div>
+      <Controller>
+        <Scene duration={1000}>
+        {/*  */}
+        
+          <Timeline
+            target={
+              <div className="heading">
+                <div className="plane-animation">
+                  <img className={"plane"} src="./plane.svg" alt="plane"/>
+                  
+                </div>
+              </div>
+            }
+          >
+            <Tween
+              to={{ x: '90%' }}
+            />
+          </Timeline>
+        
+        </Scene>
+      </Controller>
 
       <KContent place={region}/>
     </main>
@@ -73,5 +92,6 @@ export default function Content() {
     d3.select("#full-map").html("");
     create(); 
   }
+
 }
 
