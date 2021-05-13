@@ -1,30 +1,44 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
 
-function Content() {
+export default function Content() {
   return (
-    <main>
-      <script>
-        function initialize(){
-            d3_korea_map('#map')
-        }
-      </script>
-      <div id="map" style={{height:400}}></div>
+    <main className={"content"}>
+      <div className="maps">
+        <div id="full-map">
+          <script>
+            function initialize(){
+            d3_korea_map('#full-map')
+          }
+          </script>
+        </div>
+        <div className="description">
+
+        </div>
+      </div>
+
+      <div className="plane-animation">
+        <img className={"plane"} src="./plane.svg" alt="plane"/>
+        <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
+      </div>
+
+      <div className="local-map-border">
+        <div className="local-map">
+
+        </div>
+      </div>
     </main>
   )
   
 }
 
 function d3_korea_map(_mapContainerId){
-  console.log(1);
-  var WIDTH, HEIGHT,
-      MAP_CONTAINER_ID = _mapContainerId,
-      KOREA_PROVINCE_OBJECT = 'skorea_provinces_2018_geo';
+  let WIDTH, HEIGHT;
+  const MAP_CONTAINER_ID = _mapContainerId;
+  const KOREA_PROVINCE_OBJECT = 'skorea_provinces_2018_geo';
 
-  var projection, path, svg,
-      geoJson, features, bounds, center,
-      map;
-  var KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
+  let projection, path, svg, geoJson, features, bounds, center, map;
+  const KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
 
   function create(){
       HEIGHT = window.innerHeight;
@@ -32,8 +46,6 @@ function d3_korea_map(_mapContainerId){
 
       projection = d3.geoMercator().translate([WIDTH / 2.5, HEIGHT / 2]);
       path = d3.geoPath().projection(projection);
-
-      d3.select(MAP_CONTAINER_ID).html("");
 
       svg = d3.select(MAP_CONTAINER_ID).append("svg")
           .attr("width", WIDTH)
@@ -48,26 +60,26 @@ function d3_korea_map(_mapContainerId){
           bounds = d3.geoBounds(geoJson);
           center = d3.geoCentroid(geoJson);
 
-          var distance = d3.geoDistance(bounds[0], bounds[1]);
-          var scale = HEIGHT / distance / Math.sqrt(2) * 1.2;
+          const distance = d3.geoDistance(bounds[0], bounds[1]);
+          const scale = HEIGHT / distance / Math.sqrt(2) * 1.2;
 
           projection.scale(scale).center(center);
+
+          console.log(scale);
 
           map.selectAll("path")
               .data(features)
               .enter().append( "path")
-              .attr("class", function(d) { console.log(d);
-                  return "municipality c " + d.properties.code;})
+              .attr("class", function(d) { return "municipality c " + d.properties.code;})
               .attr("d", path)
               .on("click", onclick)
       });
   }
 
-  create();
-
   function onclick(d){
     console.log(d3.select(this)._groups[0][0].__data__.properties.name);
   }
-}
 
-export default Content;
+  d3.select("#full-map").html("");
+  create(); 
+}
