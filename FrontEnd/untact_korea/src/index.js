@@ -15,7 +15,6 @@ import * as topojson from "topojson";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Logo/>
     <Content/>
   </React.StrictMode>,
   document.getElementById('root')

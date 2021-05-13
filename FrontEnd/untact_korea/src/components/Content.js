@@ -15,6 +15,11 @@ export default function Content() {
   return (
     <main className={"content"}>
       <div className="full-map-mapper">
+        <center className={"logo"}>
+          <div className="title">
+            <h1>Pocket Korea</h1>
+          </div>
+        </center>
         <div id="full-map" className="full-map"></div>
       </div>
 
@@ -88,6 +93,10 @@ export default function Content() {
   
     function onclick(d){
       setRegion(d3.select(this)._groups[0][0].__data__.properties.name);
+      window.scrollTo({
+        top: 1500,
+        behavior: 'smooth',
+      });
     }
   
     d3.select("#full-map").html("");
