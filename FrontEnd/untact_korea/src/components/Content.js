@@ -59,8 +59,6 @@ function d3_korea_map(_mapContainerId){
                   return "municipality c " + d.properties.code;})
               .attr("d", path)
               .on("click", onclick)
-              .on('mouseover', mouseover)
-              .on('mouseout', mouseout);
       });
   }
 
@@ -68,14 +66,6 @@ function d3_korea_map(_mapContainerId){
 
   function onclick(d){
     console.log(d3.select(this)._groups[0][0].__data__.properties.name);
-  }
-  
-  function mouseout(d){
-    d3.select(this).style('fill', '#808080');
-  }
-
-  function mouseover(d){
-    d3.select(this).style('fill', '#1483ce');
   }
 }
 
