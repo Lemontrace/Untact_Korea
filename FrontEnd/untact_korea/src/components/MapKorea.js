@@ -25,7 +25,11 @@ export function MapKorea(props) {
 
     if(props){
         return (
-            <div id="kmap" style={{height: 600}}></div>
+            <div className="local-map-border">
+                <div id="kmap" className="local-map">
+
+                </div>
+            </div>
         )
     }
 }
