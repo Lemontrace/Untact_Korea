@@ -5,10 +5,10 @@ export default function Content() {
   return (
     <main className={"content"}>
       <div className="maps">
-        <div className="full-map">
+        <div id="full-map">
           <script>
             function initialize(){
-            d3_korea_map('.full-map')
+            d3_korea_map('#full-map')
           }
           </script>
         </div>
@@ -65,6 +65,8 @@ function d3_korea_map(_mapContainerId){
 
           projection.scale(scale).center(center);
 
+          console.log(scale);
+
           map.selectAll("path")
               .data(features)
               .enter().append( "path")
@@ -78,6 +80,6 @@ function d3_korea_map(_mapContainerId){
     console.log(d3.select(this)._groups[0][0].__data__.properties.name);
   }
 
-  d3.select("#smap").html("");
+  d3.select("#full-map").html("");
   create(); 
 }
