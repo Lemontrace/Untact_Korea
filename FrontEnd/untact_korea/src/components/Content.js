@@ -9,6 +9,7 @@ function Content() {
             d3_korea_map('#map')
         }
       </script>
+      <div id="map" style={{height:400}}></div>
     </main>
   )
   
