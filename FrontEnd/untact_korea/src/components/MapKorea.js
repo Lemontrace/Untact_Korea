@@ -49,25 +49,31 @@ export function MapKorea(props) {
         )
     }
 }
+function formatter(description, stride, start = 6) {
+    let result = '';
+    for (let v of description) {
+        result += v;
+        start += 1;
+        if (start % stride == 0) result += "<br>"
+    }
+    return result
+}
 
 const createString = (place, videoId) =>{
     let description = place.축제내용;
-    if (description.length > 35) {
-        description = description.substr(0, 32) + "...";
-    }
+    description = formatter(description, 33);
     return [
         '<div class="iw_inner" style="margin:10%">',
         '   <h3>', place.축제명, '</h3>',
-        '   <iframe width="100%" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        '   <p>', place.장소, '<br />',
-                description, '<br />',
+        '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '   <p><b>장소</b>: ', place.장소, '<br />',
+               '<b>축제내용</b>: ' ,description, '<br />',
         '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
         '   </p>',
         
         '</div>'
     ].join('');
 }
-
 const createMarkerandViewer = (map, navermaps, place) => {
     const URL = "http://3.35.61.16:50816/searchYoutube"
     let mplace = new navermaps.LatLng(place.위도, place.경도);
