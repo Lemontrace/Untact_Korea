@@ -9,13 +9,10 @@ path:hover {
 }
 
 .maps {
-    margin: 0 5%;
-    border: black solid 1px;
-    display: flex;
-}
-
-#full-map{
-    border: black solid 1px;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    border-color: black;
 }
 
 .plane-animation {
@@ -84,4 +81,10 @@ path:hover {
     width: 100%;
     height: 600px;
     background-color: white;
+}
+
+.maps-border {
+    margin: 100px 5% 0 5%;
+    padding: 24px;
+    background-color: #F8FFA7;
 }

@@ -9,8 +9,11 @@ export default function Content() {
 
   return (
     <main className={"content"}>
-      <div id="full-map"></div>
-
+      <div className="maps-border">
+        <div className="maps">
+          <div id="full-map"></div>
+        </div>
+      </div>
       <div className="plane-animation">
         <img className={"plane"} src="./plane.svg" alt="plane"/>
         <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
@@ -35,15 +38,16 @@ function d3_korea_map(_mapContainerId){
   const KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
 
   function create(){
-      HEIGHT = window.innerHeight;
+      HEIGHT = 600;
       WIDTH = window.innerWidth;
 
-      projection = d3.geoMercator().translate([WIDTH / 2, HEIGHT / 2]);
+      projection = d3.geoMercator().translate([WIDTH*0.45, HEIGHT / 2]);
       path = d3.geoPath().projection(projection);
 
       svg = d3.select(MAP_CONTAINER_ID).append("svg")
-          .attr("width", WIDTH)
-          .attr("height", HEIGHT);
+          .style("width", "100%")
+          .style("height", "600px")
+          .style("text-align", "center");
 
       map = svg.append("g").attr("id", "map");
 
