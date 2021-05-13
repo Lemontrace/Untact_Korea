@@ -5,12 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import Logo from "./components/Logo";
 import './styles/Logo.css'
 import Content from "./components/Content";
+import {KContent} from "./components/KContent";
 import './styles/Content.css'
+import {RenderAfterNavermapsLoaded} from 'react-naver-maps';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Logo/>
     <Content/>
+    <KContent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
