@@ -4,7 +4,7 @@
     display: flex;
 }
 
-.full-map, .local-map {
+.full-map, .description {
     display: flex;
     width: 50%;
     height: 500px;
@@ -65,4 +65,16 @@
 .flying-route {
     margin: 0 12% 0 6%;
     transform: translateY(80px);
+}
+
+.local-map-border {
+    margin: 100px 5% 0 5%;
+    padding: 24px;
+    background-color: #F8FFA7;
+}
+
+.local-map {
+    width: 100%;
+    height: 600px;
+    background-color: white;
 }
