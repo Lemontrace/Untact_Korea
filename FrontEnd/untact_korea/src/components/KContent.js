@@ -14,7 +14,7 @@ export function KContent(props) {
     const { place } = props;
     console.log("plotkeyprop: ", props.place);
     
-    const URL = "http://3.36.149.10:58360/getFestivals"
+    const URL = "http://3.35.61.16:50816/getFestivals"
 
     const updatePlaces = async (region) => {
         axios.get(URL, {
