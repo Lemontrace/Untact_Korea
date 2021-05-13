@@ -1,21 +1,15 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
+import {useEffect} from "react";
 
 export default function Content() {
+  useEffect(()=>{
+    d3_korea_map('#full-map')
+  })
+
   return (
     <main className={"content"}>
-      <div className="maps">
-        <div id="full-map">
-          <script>
-            function initialize(){
-            d3_korea_map('#full-map')
-          }
-          </script>
-        </div>
-        <div className="description">
-
-        </div>
-      </div>
+      <div id="full-map"></div>
 
       <div className="plane-animation">
         <img className={"plane"} src="./plane.svg" alt="plane"/>
@@ -44,7 +38,7 @@ function d3_korea_map(_mapContainerId){
       HEIGHT = window.innerHeight;
       WIDTH = window.innerWidth;
 
-      projection = d3.geoMercator().translate([WIDTH / 2.5, HEIGHT / 2]);
+      projection = d3.geoMercator().translate([WIDTH / 2, HEIGHT / 2]);
       path = d3.geoPath().projection(projection);
 
       svg = d3.select(MAP_CONTAINER_ID).append("svg")
@@ -64,8 +58,6 @@ function d3_korea_map(_mapContainerId){
           const scale = HEIGHT / distance / Math.sqrt(2) * 1.2;
 
           projection.scale(scale).center(center);
-
-          console.log(scale);
 
           map.selectAll("path")
               .data(features)

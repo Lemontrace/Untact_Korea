@@ -14,10 +14,7 @@ path:hover {
     display: flex;
 }
 
-.full-map, .description {
-    display: flex;
-    width: 50%;
-    height: 500px;
+#full-map{
     border: black solid 1px;
 }
 
