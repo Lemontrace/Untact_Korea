@@ -14,10 +14,24 @@ export function MapKoreaTour(props) {
         setMarkers(markerloc);
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
+
+        let x, y;
+        if (markerloc.length == 0) {
+            x = 37.474331;
+            y = 126.868457;
+        } else if (markerloc[0].지역 == '세종특별자치시' 
+                    || markerloc[0].지역 == '광주광역시') {
+            x = markerloc[0].위도;
+            y = markerloc[0].경도;
+        } else {
+            x = markerloc[5].위도;
+            y = markerloc[5].경도;
+        }
+
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[5].위도, markerloc[5].경도),
+            center: new navermaps.LatLng(x, y),
             zoom: 9
-        })
+        });
 
         markerloc.map((m, l) => {
             // console.log(m);

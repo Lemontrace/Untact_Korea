@@ -15,13 +15,21 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
 
-        let idx = 5;
-        if (markerloc[0].지역 == '세종특별자치시') {
-            idx = 0;
+        let x, y;
+        if (markerloc.length == 0) {
+            x = 37.474331;
+            y = 126.868457;
+        } else if (markerloc[0].지역 == '세종특별자치시' 
+                    || markerloc[0].지역 == '광주광역시') {
+            x = markerloc[0].위도;
+            y = markerloc[0].경도;
+        } else {
+            x = markerloc[5].위도;
+            y = markerloc[5].경도;
         }
 
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[idx].위도, markerloc[idx].경도),
+            center: new navermaps.LatLng(x, y),
             zoom: 9
         });
 
