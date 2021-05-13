@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
-
+const axios = require("axios");
 
 export function MapKorea(props) {
     const navermaps = window.naver.maps; 
@@ -34,21 +34,22 @@ export function MapKorea(props) {
     }
 }
 
-const createString = (place) =>{
+const createString = (place, videoId) =>{
     return [
-    '<div class="iw_inner">',
-    '   <h3>', place.축제명, '</h3>',
-    '   <iframe width="400" height="240" src="https://www.youtube.com/embed/gM_yCmE8snY" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-    '   <p>', place.장소, '<br />',
-            place.축제내용, '<br />',
-    '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
-    '   </p>',
-    
-    '</div>'
+        '<div class="iw_inner">',
+        '   <h3>', place.축제명, '</h3>',
+        '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '   <p>', place.장소, '<br />',
+                place.축제내용, '<br />',
+        '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
+        '   </p>',
+        
+        '</div>'
     ].join('');
 }
 
 const createMarkerandViewer = (map, navermaps, place) => {
+    const URL = "http://3.35.61.16:50816/searchYoutube"
     let mplace = new navermaps.LatLng(place.위도, place.경도);
     
     let marker = new navermaps.Marker({
@@ -58,18 +59,26 @@ const createMarkerandViewer = (map, navermaps, place) => {
         animation: navermaps.Animation.DROP
     });
 
-    let infowindow = new navermaps.InfoWindow({
-        content: createString(place)
-    });
+    let infowindow = new navermaps.InfoWindow({content: ''});
 
-    // console.log(createString(place));
     navermaps.Event.addListener(marker, "click", function(e) {
         if (infowindow.getMap()) {
             infowindow.close();
         } else {
-            infowindow.open(map, marker);
+            axios.get(URL, {
+                params: {
+                    keyword: place.축제명
+                }
+            }).then(res =>{
+                infowindow.setContent(createString(place, res.data));
+            });
         }
     });
+
+    navermaps.Event.addListener(infowindow, "content_changed", function(e) {
+        infowindow.open(map, marker);
+    });
+
 
     navermaps.Event.addListener(marker, "rightclick", function(e) {
         console.log("hi");
