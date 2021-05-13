@@ -44,12 +44,27 @@ path:hover {
     background-image: url("../styles/divBackground.png");
 }
 
+.title h1 {
+    width: 100%;
+    font-size: 6em;
+    text-align: center;
+    margin: 0;
+}
+
 #history {
-    margin: 48px 5%;
+    padding: 2% 10% 5% 10%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("../styles/divBackground.png");
+    text-align: center;
 }
 
 #history h2 {
+    border-top: solid 7px;
+    border-bottom: solid 7px;
     text-align: center;
+    width: 100%;
+    font-size: 4em;
 }
 
 #history .histories {
@@ -76,4 +91,3 @@ path:hover {
 .full-map {
     border: solid 7px;
 }
-
