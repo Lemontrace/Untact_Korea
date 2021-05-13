@@ -81,6 +81,7 @@ export default function Content() {
         svg = d3.select(MAP_CONTAINER_ID).append("svg")
             .style("width", "100%")
             .style("height", HEIGHT)
+            .style("background-color", "#86BCE3")
             .style("text-align", "center");
   
         map = svg.append("g").attr("id", "map");

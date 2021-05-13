@@ -4,7 +4,7 @@
 }
 
 path{
-    fill: gainsboro;
+    fill: #41BC8F;
     stroke: white;
     stroke-width: 1.5px;
 }
@@ -26,7 +26,7 @@ path:hover {
     padding: 11%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url("../styles/divBackground.png");
+    background-image: url("../styles/divBackgroundPurple.png");
     bottom: 100%;
 }
 
@@ -41,7 +41,7 @@ path:hover {
     padding: 11%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url("../styles/divBackground.png");
+    background-image: url("../styles/divBackgroundGreen.png");
 }
 
 .title h1 {
@@ -52,10 +52,11 @@ path:hover {
 }
 
 #history {
-    padding: 2% 10% 5% 10%;
+    margin: 1% 0% 0% 0%;
+    padding: 5% 10% 5% 10%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url("../styles/divBackground.png");
+    background-image: url("../styles/divBackgroundRed.png");
     text-align: center;
 }
 
@@ -89,5 +90,6 @@ path:hover {
 }
 
 .full-map {
+    background-color: #86BCE3;
     border: solid 7px;
 }
