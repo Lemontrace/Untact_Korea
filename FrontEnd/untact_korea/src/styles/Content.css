@@ -88,3 +88,26 @@ path:hover {
     padding: 24px;
     background-color: #F8FFA7;
 }
+
+#history {
+    margin: 48px 5%;
+}
+
+#history h2 {
+    text-align: center;
+}
+
+#history .histories {
+    display: block;
+}
+
+.histories div {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    margin: 24px;
+    padding: 16px;
+    border: #605D65 solid 1px;
+    border-radius: 12px;
+}

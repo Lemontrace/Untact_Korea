@@ -68,11 +68,25 @@ const createMarkerandViewer = (map, navermaps, place) => {
             infowindow.close();
         } else {
             infowindow.open(map, marker);
+            /* 방문 기록 */
+            insertHistory(marker.title);
         }
     });
+
+    /* 방문 기록 저장 */
+    function insertHistory(place) {
+        let div = document.createElement('div');
+
+        if(typeof(place) == "string")
+            div.append(`${place}`);
+        else
+            div.append('place');
+
+        document.getElementsByClassName("histories")[0].append(div);
+        document.getElementsByClassName("histories")[0].append(div);
+    }
 
     navermaps.Event.addListener(marker, "rightclick", function(e) {
         console.log("hi");
     });
-
 }

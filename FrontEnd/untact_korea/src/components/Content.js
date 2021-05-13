@@ -20,6 +20,12 @@ export default function Content() {
       </div>
 
       <KContent place={region}/>
+      <div id="history">
+        <h2>내가 다녀간 장소</h2>
+        <div className="histories">
+
+        </div>
+      </div>
     </main>
   )
 
