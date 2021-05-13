@@ -88,6 +88,10 @@ export default function Content() {
   
     function onclick(d){
       setRegion(d3.select(this)._groups[0][0].__data__.properties.name);
+      window.scrollTo({
+        top: 1600,
+        behavior: 'smooth',
+        });
     }
   
     d3.select("#full-map").html("");
