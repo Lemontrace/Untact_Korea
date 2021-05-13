@@ -38,6 +38,7 @@ function d3_korea_map(_mapContainerId){
   function create(){
       HEIGHT = window.innerHeight;
       WIDTH = window.innerWidth;
+      WIDTH -= WIDTH / 10;
 
       projection = d3.geoMercator().translate([WIDTH / 2, HEIGHT / 2]);
       path = d3.geoPath().projection(projection);

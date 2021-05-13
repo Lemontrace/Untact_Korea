@@ -15,6 +15,7 @@ path:hover {
 }
 
 #full-map{
+    margin: 0 5%;
     border: black solid 1px;
 }
 
