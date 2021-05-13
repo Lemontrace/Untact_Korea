@@ -3,11 +3,8 @@ import { RenderAfterNavermapsLoaded, NamerMap, NaverMap, Marker } from "react-na
 
 
 export function MapKorea(props) {
-
-    const NAVER_API_KEY = "kbcio1ltrh";
     const navermaps = window.naver.maps; 
     const {markerloc} = props;
-
 
     if(props){
         return (
@@ -46,7 +43,6 @@ export function MapKorea(props) {
             style={{
                 width: '100%', // 네이버지도 가로 길이
                 height: 600, // 네이버지도 세로 길이
-
             }}
             defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
             zoom={8}
