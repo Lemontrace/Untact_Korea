@@ -15,7 +15,7 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[10].위도, markerloc[10].경도),
+            center: new navermaps.LatLng(markerloc[5].위도, markerloc[5].경도),
             zoom: 9
         })
 
@@ -66,6 +66,7 @@ const createMarkerandViewer = (map, navermaps, place) => {
 
     // console.log(createString(place));
     navermaps.Event.addListener(marker, "click", function(e) {
+        console.log("infowindow: ", infowindow.content);
         if (infowindow.getMap()) {
             infowindow.close();
         } else {

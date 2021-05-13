@@ -16,32 +16,27 @@ export default function Content() {
     <main className={"content"}>
       <div id="full-map"></div>
 
-      {/* <Controller>
-        <Scene duration={800} pin> */}
-        <div className="plane-animation">
-          <img className={"plane"} src="./plane.svg" alt="plane"/>
-          <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
-        </div>
+      <Controller>
+        <Scene duration={1000}>
+        {/*  */}
         
-          {/* <Timeline
+          <Timeline
             target={
               <div className="heading">
-                <h2>This is a cool heading</h2>
+                <div className="plane-animation">
+                  <img className={"plane"} src="./plane.svg" alt="plane"/>
+                  
+                </div>
               </div>
             }
           >
-            <Tween
-              from={{ opacity: 0 }}
-              to={{ opacity: 1 }}
-            />
-
             <Tween
               to={{ x: '90%' }}
             />
           </Timeline>
         
         </Scene>
-      </Controller> */}
+      </Controller>
 
       <KContent place={region}/>
     </main>
