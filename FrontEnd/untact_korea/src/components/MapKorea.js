@@ -21,7 +21,6 @@ export function MapKorea(props) {
             
             {
                 markerloc.map((l, i) =>{
-                    console.log("make marker: ", l);
                     return <Marker 
                     position={new navermaps.LatLng(Number(l.위도), Number(l.경도))}
                     animation={navermaps.Animation.DROP}
