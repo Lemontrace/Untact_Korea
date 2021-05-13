@@ -16,6 +16,13 @@ def get_tours():
     location = request.args.get('location')
     return jsonify(utils.parseTour(location))
 
+@app.route('/searchYoutube')
+def search_youtube():
+    keyword = request.args.get('keyword')
+    if not keyword:
+        return "missing keyword"
+    return jsonify(utils.search_youtube(keyword))
+
 youtube_api_key = 'AIzaSyC-5mfLh9EWPdHNOv25ngb2UfNYh6eZ4Uo'
 def get_video_key(query):
     args={'part': 'snippet', 'maxResults': 1, 'q': query, 'type': 'video', 'key': youtube_api_key}
