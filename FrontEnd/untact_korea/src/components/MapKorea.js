@@ -44,9 +44,9 @@ export function MapKorea(props) {
 
 const createString = (place, videoId) =>{
     return [
-        '<div class="iw_inner">',
+        '<div class="iw_inner" style="margin:10%">',
         '   <h3>', place.축제명, '</h3>',
-        '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '   <iframe width="100%" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         '   <p>', place.장소, '<br />',
                 place.축제내용, '<br />',
         '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
