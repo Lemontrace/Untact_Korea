@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
-import Logo from "./components/Logo";
 import './styles/Logo.css'
 import Content from "./components/Content";
-import './styles/KContent.css'
 import './styles/Content.css'
 
 import {RenderAfterNavermapsLoaded} from 'react-naver-maps';
