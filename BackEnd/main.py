@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 import json
 import utils
@@ -13,8 +13,8 @@ def get_festivals():
 
 @app.route('/getTours')
 def get_tours():
-    pass
-    #TODO
+    location = request.args.get('location')
+    return jsonify(utils.parseTour(location))
 
 youtube_api_key = 'AIzaSyC-5mfLh9EWPdHNOv25ngb2UfNYh6eZ4Uo'
 def get_video_key(query):
@@ -27,5 +27,5 @@ def get_video_key(query):
 print(get_video_key("광안리 불꽃축제"))
 
 
-#app.run('0.0.0.0', 5000)
+app.run('0.0.0.0', 5000)
 
