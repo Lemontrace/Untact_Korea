@@ -27,12 +27,12 @@
 ---
 
 ## Contributors - 영원휘이😎
-정재영(J-jaeyoung) 송준영(hamBP) 김진원(xmcodings) 노휘인(nohwiin) 조이(Lemontrace)
+**정재영(J-jaeyoung)** & **송준영(hamBP)** & **김진원(xmcodings)** & **노휘인(nohwiin)** & **조이(Lemontrace)**
 
 ## 기술 스택📚
-벡엔드 서버 구현 : flask  
-프론트엔드 서버 구현 : react.js  
-데이터 처리 : ruby
+- 벡엔드 서버 구현 : flask  
+- 프론트엔드 서버 구현 : react.js  
+- 데이터 처리 : ruby
 
 ## 사용 공공 데이터📰
 - 전국 문화축제 : [https://www.data.go.kr/data/15013104/standard.do](https://www.data.go.kr/data/15013104/standard.do)
