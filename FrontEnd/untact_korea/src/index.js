@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import Logo from "./components/Logo";
 import './styles/Logo.css'
 import Content from "./components/Content";
-import {KContent} from "./components/KContent";
 import './styles/KContent.css'
 import './styles/Content.css'
 
@@ -18,7 +17,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Logo/>
     <Content/>
-    <KContent place="경기도"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
