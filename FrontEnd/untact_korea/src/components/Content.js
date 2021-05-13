@@ -1,15 +1,14 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import KContent from "./KContent";
 
 export default function Content() {
   useEffect(()=>{
     d3_korea_map('#full-map')
-  }, [])
+  },[]);
 
   const [region, setRegion] = useState("경기도");
-
 
   return (
     <main className={"content"}>
@@ -23,7 +22,6 @@ export default function Content() {
       <KContent place={region}/>
     </main>
   )
-  
 
   function d3_korea_map(_mapContainerId){
     let WIDTH, HEIGHT;
@@ -34,15 +32,16 @@ export default function Content() {
     const KOREA_JSON_DATA_URL = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-topo-simple.json';
   
     function create(){
-        HEIGHT = window.innerHeight;
+        HEIGHT = 600;
         WIDTH = window.innerWidth;
   
-        projection = d3.geoMercator().translate([WIDTH / 2, HEIGHT / 2]);
+        projection = d3.geoMercator().translate([WIDTH*0.45, HEIGHT / 2]);
         path = d3.geoPath().projection(projection);
   
         svg = d3.select(MAP_CONTAINER_ID).append("svg")
-            .attr("width", WIDTH)
-            .attr("height", HEIGHT);
+            .style("width", "100%")
+            .style("height", "600px")
+            .style("text-align", "center");
   
         map = svg.append("g").attr("id", "map");
   
@@ -68,14 +67,11 @@ export default function Content() {
     }
   
     function onclick(d){
-      const reg = d3.select(this)._groups[0][0].__data__.properties.name;
-      console.log("click ", reg);
-      setRegion(reg);
+      setRegion(d3.select(this)._groups[0][0].__data__.properties.name);
     }
   
     d3.select("#full-map").html("");
     create(); 
   }
-
 }
 
