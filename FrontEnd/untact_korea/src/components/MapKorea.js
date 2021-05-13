@@ -1,9 +1,9 @@
 import React, {useState, useEffect } from "react";
 import { RenderAfterNavermapsLoaded, NamerMap, NaverMap, Marker } from "react-naver-maps";
-
+import KoreaMap from "./KoreaMap";
 
 export function MapKorea(props) {
-    const navermaps = window.naver.maps; 
+    const navermaps = window.naver.maps;
     const {markerloc} = props;
 
     if(props){
@@ -18,28 +18,28 @@ export function MapKorea(props) {
                 defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
                 zoom={8}
             >
-            
+
             {
                 markerloc.map((l, i) =>{
                     console.log("make marker: ", l);
-                    return <Marker 
+                    return <Marker
                     position={new navermaps.LatLng(Number(l.위도), Number(l.경도))}
                     animation={navermaps.Animation.DROP}
                     onClick={() => {
                         alert('여기는 ' + l.축제명 + "입니다")
-                    }} 
+                    }}
                     key={i}
                     />
                 })
             }
-            
+
             </NaverMap>
         )
     }
     else{
         return (
             <NaverMap
-            id={"map"} 
+            id={"map"}
             style={{
                 width: '100%',
                 height: 600,
@@ -52,3 +52,5 @@ export function MapKorea(props) {
         )
     }
 }
+
+export default MapKorea;
