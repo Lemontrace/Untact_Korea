@@ -2,6 +2,7 @@ from flask import Flask, request
 import requests
 import json
 import utils
+from bs4 import BeautifulSoup
 
 app = Flask(__name__, static_folder='data')
 
