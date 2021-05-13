@@ -1,5 +1,4 @@
 import React, {createElement, useEffect, useState} from "react";
-import { NaverMap, Marker } from "react-naver-maps";
 import s from "../styles/lighter.png"
 const axios = require("axios");
 
