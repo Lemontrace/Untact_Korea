@@ -4,10 +4,19 @@ import React, {useEffect, useState} from "react";
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
 import KContent from "./KContent";
+import plane from "../styles/realplane.png";
 
 export default function Content() {
+  const update = () => {
+    d3_korea_map('#full-map');
+  }
+
   useEffect(()=>{
-    d3_korea_map('#full-map')
+    d3_korea_map('#full-map');
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('resize', update);
+    }
   },[]);
 
   const [region, setRegion] = useState("경기도");
@@ -31,14 +40,14 @@ export default function Content() {
             target={
               <div className="heading">
                 <div className="plane-animation">
-                  <img className={"plane"} src="./plane.svg" alt="plane"/>
+                  <img className={"plane"} src={plane} alt="plane"/>
                   
                 </div>
               </div>
             }
           >
             <Tween
-              to={{ x: '90%' }}
+              to={{ x: '100%' }}
             />
           </Timeline>
         
