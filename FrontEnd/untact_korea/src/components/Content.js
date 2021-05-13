@@ -3,12 +3,30 @@ import * as topojson from "topojson";
 
 function Content() {
   return (
-    <main>
-      <script>
-        function initialize(){
+    <main className={"content"}>
+      <div className="maps">
+        <div className="full-map">
+          <script>
+            function initialize(){
             d3_korea_map('#map')
-        }
-      </script>
+          }
+          </script>
+        </div>
+        <div className="description">
+
+        </div>
+      </div>
+
+      <div className="plane-animation">
+        <img className={"plane"} src="./plane.svg" alt="plane"/>
+        <img className={"flying-route"} src="./flying-route.svg" alt="flying line"/>
+      </div>
+
+      <div className="local-map-border">
+        <div className="local-map">
+
+        </div>
+      </div>
     </main>
   )
   
