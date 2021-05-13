@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {createElement, useEffect, useState} from "react";
 import { NaverMap, Marker } from "react-naver-maps";
 import s from "../styles/lighter.png"
 const axios = require("axios");
@@ -83,17 +83,34 @@ const createMarkerandViewer = (map, navermaps, place) => {
                 }
             }).then(res =>{
                 infowindow.setContent(createString(place, res.data));
+                insertHistory(marker.title, res.data);
             });
         }
     });
+
+    /* 방문 기록 저장 */
+    function insertHistory(place, youtubeID) {
+        let div = document.createElement('div');
+
+        if(typeof(place) == "string") {
+            let h3 = document.createElement('h3');
+            h3.append(place);
+            div.append(h3);
+            div.setAttribute("style", `background-image: url('https://i.ytimg.com/vi/${youtubeID}/mqdefault.jpg');`);
+        }
+        else
+            div.append('place');
+
+        document.getElementsByClassName("histories")[0].append(div);
+    }
 
     navermaps.Event.addListener(infowindow, "content_changed", function(e) {
         infowindow.open(map, marker);
     });
 
 
+
     navermaps.Event.addListener(marker, "rightclick", function(e) {
         console.log("hi");
     });
-
 }
