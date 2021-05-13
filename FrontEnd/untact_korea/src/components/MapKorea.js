@@ -9,14 +9,14 @@ export function MapKorea(props) {
     if(props){
         return (
             <NaverMap
-            id={"map"} // default: react-naver-map
-            style={{
-                width: '100%', // 네이버지도 가로 길이
-                height: 600, // 네이버지도 세로 길이
+                id={"map"} // default: react-naver-map
+                style={{
+                    width: '100%', // 네이버지도 가로 길이
+                    height: 600, // 네이버지도 세로 길이
 
-            }}
-            defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
-            zoom={8}
+                }}
+                defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
+                zoom={8}
             >
             
             {
@@ -39,12 +39,12 @@ export function MapKorea(props) {
     else{
         return (
             <NaverMap
-            id={"map"} // default: react-naver-map
+            id={"map"} 
             style={{
-                width: '100%', // 네이버지도 가로 길이
-                height: 600, // 네이버지도 세로 길이
+                width: '100%',
+                height: 600,
             }}
-            defaultCenter={{ lat: 37.554722, lng: 126.990833 }} // 지도 초기 위치
+            defaultCenter={{ lat: 37.554722, lng: 126.990833 }}
             zoom={8}
             >
             
