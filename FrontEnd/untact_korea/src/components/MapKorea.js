@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {createElement, useEffect, useState} from "react";
 import { NaverMap, Marker } from "react-naver-maps";
 const axios = require("axios");
 
@@ -76,17 +76,21 @@ const createMarkerandViewer = (map, navermaps, place) => {
                 }
             }).then(res =>{
                 infowindow.setContent(createString(place, res.data));
-                insertHistory(marker.title);
+                insertHistory(marker.title, res.data);
             });
         }
     });
 
     /* 방문 기록 저장 */
-    function insertHistory(place) {
+    function insertHistory(place, youtubeID) {
         let div = document.createElement('div');
 
-        if(typeof(place) == "string")
-            div.append(`${place}`);
+        if(typeof(place) == "string") {
+            let h3 = document.createElement('h3');
+            h3.append(place);
+            div.append(h3);
+            div.setAttribute("style", `background-image: url('https://i.ytimg.com/vi/${youtubeID}/mqdefault.jpg');`);
+        }
         else
             div.append('place');
 

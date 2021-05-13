@@ -104,10 +104,16 @@ path:hover {
 .histories div {
     text-align: center;
     display: inline-block;
-    width: 200px;
-    height: 300px;
-    margin: 24px;
+    width: 240px;
+    height: 140px;
+    margin: 30px;
     padding: 16px;
     border: #605D65 solid 1px;
     border-radius: 12px;
+}
+
+.histories div h3 {
+    font-weight: 600;
+    transform: translateY(-85px);
+    text-align: center;
 }
