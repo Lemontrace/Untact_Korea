@@ -1,42 +1,13 @@
-.logo {
-    margin: 75px 10%;
-}
-
 .title {
+    margin: 0 0 1% 0;
+    border-top: solid 7px;
+    border-bottom: solid 7px;
     display: flex;
-    background-color: #F5F5DC;
 }
 
 .title h1 {
     width: 100%;
-    font-size: 96px;
-    font-weight: 500;
+    font-size: 6em;
     text-align: center;
-    margin: 0;
-}
-
-.background1, .background2, .background3 {
-    display: flex;
-}
-
-.background1 {
-    width: 10%;
-    background-color: #F8FFA7;
-}
-
-.background2 {
-    width: 10%;
-    background-color: #7FC7C7;
-}
-
-.background3 {
-    width: 10%;
-    background-color: #BB3C2D;
-}
-
-.logo h2 {
-    font-size: 36px;
-    text-align: right;
-    font-weight: 500;
     margin: 0;
 }

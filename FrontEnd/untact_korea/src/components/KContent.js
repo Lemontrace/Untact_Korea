@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {MapKorea} from "./MapKorea";
 
-
-
-
 export function KContent(props) {
     // prop : place{경기도, 경상남도, 부산광역시 등...}
     const [isLoading, setLoading] = useState(true);

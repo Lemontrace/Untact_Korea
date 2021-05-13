@@ -1,3 +1,8 @@
+.content{
+    height: 100%;
+    width: 100%;
+}
+
 path{
     fill: gainsboro;
     stroke: white;
@@ -8,63 +13,9 @@ path:hover {
     fill: orange;
 }
 
-.maps {
-    width: 100%;
-    height: 600px;
-    background-color: white;
-    border-color: black;
-}
-
 .plane-animation {
-    margin: 24px 5%;
+    margin: 0% 0% 0% 0%;
 }
-
-/* .plane {
-    position: absolute;
-    animation: planeAni 3s 1 linear;
-}
-
-@keyframes planeAni {
-    10% {
-        transform: translate(100px, -20px);
-    }
-
-    20% {
-        transform: translate(200px, -35px);
-    }
-
-    30% {
-        transform: translate(300px, -50px);
-    }
-
-    40% {
-        transform: translate(400px, -55px);
-    }
-
-    50% {
-        transform: translate(500px, -60px);
-    }
-
-    60% {
-        transform: translate(600px, -55px);
-    }
-
-    70% {
-        transform: translate(700px, -50px);
-    }
-
-    80% {
-        transform: translate(800px, -35px);
-    }
-
-    90% {
-        transform: translate(900px, -20px);
-    }
-
-    100% {
-        transform: translate(1000px, 0);
-    }
-} */
 
 .flying-route {
     margin: 0 12% 0 6%;
@@ -72,21 +23,25 @@ path:hover {
 }
 
 .local-map-border {
-    margin: 100px 5% 0 5%;
-    padding: 24px;
-    background-color: #F8FFA7;
+    padding: 11%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("../styles/divBackground.png");
+    bottom: 100%;
 }
 
 .local-map {
+    border: solid 7px;
     width: 100%;
-    height: 1000px;
+    padding-bottom: 60%;
     background-color: white;
 }
 
-.maps-border {
-    margin: 100px 5% 0 5%;
-    padding: 24px;
-    background-color: #F8FFA7;
+.full-map-mapper {
+    padding: 11%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("../styles/divBackground.png");
 }
 
 #history {
@@ -117,3 +72,8 @@ path:hover {
     transform: translateY(-85px);
     text-align: center;
 }
+
+.full-map {
+    border: solid 7px;
+}
+
