@@ -3,8 +3,6 @@ import * as topojson from "topojson";
 import {useEffect} from "react";
 import KContent from "./KContent";
 
-import {useEffect} from "react";
-
 export default function Content() {
   useEffect(()=>{
     d3_korea_map('#full-map')

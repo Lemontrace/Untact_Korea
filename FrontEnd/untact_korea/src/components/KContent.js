@@ -13,22 +13,18 @@ export function KContent(props) {
     let p = null;
     const {place} = props;
     console.log("plotkey: ", place);
-    const URL = "http://13.125.7.202:56340/getFestivals?location=경기도"
-    const getPlotPlaces = async (keyword) => {
-        const plotplaces = await axios.get("http://13.125.7.202:56340/getFestivals", {
-            params: {
-                location: keyword
-            }
-        })
-        return plotplaces
-    }
+    const URL = "http://13.125.7.202:56340/getFestivals"
 
     useEffect(() =>{
-        console.log("getting p");
-        axios.get(URL).then(res =>{
+        // console.log("getting p");
+        axios.get(URL, {
+            params: {
+                location: place
+            }
+        }).then(res =>{
             setPlaces(res.data);
             setLoading(false);
-            console.log("get p: ", res.data);
+            // console.log("get p: ", res.data);
         })
         
     }, [])
@@ -39,7 +35,6 @@ export function KContent(props) {
     else{
         return (
             <main>
-                {console.log("ppppppp: ", p)}
                 <MapKorea markerloc={places}/>
             </main>
         )
