@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
 
 
@@ -6,22 +6,24 @@ export function MapKorea(props) {
     const navermaps = window.naver.maps; 
 
     const {markerloc} = props;
+    const [markers, setMarkers] = useState(props.markerloc);
     let nmap = null;
 
     useEffect(()=>{
 
+        setMarkers(markerloc);
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(37.3666805, 126.8984147),
-            zoom: 10
+            center: new navermaps.LatLng(markerloc[10].위도, markerloc[10].경도),
+            zoom: 9
         })
 
         markerloc.map((m, l) => {
             // console.log(m);
             createMarkerandViewer(map, navermaps, m)
         })
-    })
+    }, [markerloc])
 
     if(props){
         return (
