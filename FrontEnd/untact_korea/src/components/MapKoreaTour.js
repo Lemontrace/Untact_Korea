@@ -58,7 +58,7 @@ const createString = (place, videoId) =>{
     return [
         '<div class="iw_inner" style="margin:10%">',
         '   <h3>', place.관광지명, '</h3>',
-        '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+        '   <iframe width="100%" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         '   <p><b>관광지 소개: </b>', description, '<br />',
         '<b>관리기관 전화번호</b>: ',        place.관리기관전화번호, '<br />',
         '   </p>',
