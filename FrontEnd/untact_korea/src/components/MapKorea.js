@@ -51,12 +51,16 @@ export function MapKorea(props) {
 }
 
 const createString = (place, videoId) =>{
+    let description = place.축제내용;
+    if (description.length > 35) {
+        description = description.substr(0, 32) + "...";
+    }
     return [
         '<div class="iw_inner">',
         '   <h3>', place.축제명, '</h3>',
         '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
         '   <p>', place.장소, '<br />',
-                place.축제내용, '<br />',
+                description, '<br />',
         '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
         '   </p>',
         

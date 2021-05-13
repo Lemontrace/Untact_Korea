@@ -51,11 +51,15 @@ export function MapKoreaTour(props) {
 }
 
 const createString = (place, videoId) =>{
+    let description = place.설명;
+    if (description.length > 35) {
+        description = description.substr(0, 32) + "...";
+    }
     return [
         '<div class="iw_inner">',
         '   <h3>', place.관광지명, '</h3>',
         '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        '   <p>', place.설명, '<br />',
+        '   <p>', description, '<br />',
         '관리기관 전화번호: ',        place.관리기관전화번호, '<br />',
         '   </p>',
         '</div>'
