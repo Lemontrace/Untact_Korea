@@ -10,8 +10,16 @@ import { FcCloseUpMode, FcOldTimeCamera } from "react-icons/fc";
 import "react-toggle/style.css" 
 
 export default function Content() {
+  const update = () => {
+    d3_korea_map('#full-map');
+  }
+
   useEffect(()=>{
-    d3_korea_map('#full-map')
+    d3_korea_map('#full-map');
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('resize', update);
+    }
   },[]);
 
   const [region, setRegion] = useState("경기도");
@@ -101,6 +109,7 @@ export default function Content() {
         svg = d3.select(MAP_CONTAINER_ID).append("svg")
             .style("width", "100%")
             .style("height", HEIGHT)
+            .style("background-color", "#86BCE3")
             .style("text-align", "center");
   
         map = svg.append("g").attr("id", "map");

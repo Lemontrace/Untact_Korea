@@ -14,10 +14,16 @@ export function MapKorea(props) {
         setMarkers(markerloc);
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
+
+        let idx = 5;
+        if (markerloc[0].지역 == '세종특별자치시') {
+            idx = 0;
+        }
+
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[3].위도, markerloc[3].경도),
+            center: new navermaps.LatLng(markerloc[idx].위도, markerloc[idx].경도),
             zoom: 9
-        })
+        });
 
         markerloc.map((m, l) => {
             // console.log(m);
