@@ -13,7 +13,7 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(37.3666805, 126.8984147),
+            center: new navermaps.LatLng(markerloc[0].위도, markerloc[0].경도),
             zoom: 10
         })
 
