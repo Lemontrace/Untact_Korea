@@ -138,7 +138,7 @@ export default function Content() {
     function onclick(d){
       setRegion(d3.select(this)._groups[0][0].__data__.properties.name);
       window.scrollTo({
-        top: 1500,
+        top: 1200,
         behavior: 'smooth',
       });
     }
