@@ -7,8 +7,16 @@ import KContent from "./KContent";
 import plane from "../styles/realplane.png";
 
 export default function Content() {
+  const update = () => {
+    d3_korea_map('#full-map');
+  }
+
   useEffect(()=>{
-    d3_korea_map('#full-map')
+    d3_korea_map('#full-map');
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('resize', update);
+    }
   },[]);
 
   const [region, setRegion] = useState("경기도");
