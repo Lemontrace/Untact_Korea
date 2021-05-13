@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 import json
 import utils
+from bs4 import BeautifulSoup
 
 app = Flask(__name__, static_folder='data')
 
@@ -21,18 +22,7 @@ def search_youtube():
     keyword = request.args.get('keyword')
     if not keyword:
         return "missing keyword"
-    return jsonify(utils.search_youtube(keyword))
+    return utils.search_youtube(keyword)
 
-youtube_api_key = 'AIzaSyC-5mfLh9EWPdHNOv25ngb2UfNYh6eZ4Uo'
-def get_video_key(query):
-    args={'part': 'snippet', 'maxResults': 1, 'q': query, 'type': 'video', 'key': youtube_api_key}
-    r = requests.get('https://youtube.googleapis.com/youtube/v3/search',params=args)
-    js=json.loads(r.text)
-    return js['items'][0]['id']['videoId']
-
-
-print(get_video_key("광안리 불꽃축제"))
-
-
-app.run('0.0.0.0', 5000)
+#app.run('0.0.0.0', 5000)
 
