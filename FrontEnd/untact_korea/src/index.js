@@ -18,7 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Logo/>
     <Content/>
-    <KContent/>
+    <KContent place="경기도"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
