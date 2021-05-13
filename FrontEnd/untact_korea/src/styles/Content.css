@@ -1,0 +1,14 @@
+main {
+    margin: 0 10%;
+    border: #282c34 solid 1px;
+}
+
+path{
+    fill: gainsboro;
+    stroke: white;
+    stroke-width: 1.5px;
+}
+
+path:hover{
+    fill: orange;
+}
