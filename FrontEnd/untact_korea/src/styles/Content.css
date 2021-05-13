@@ -19,7 +19,7 @@ path:hover {
     margin: 24px 5%;
 }
 
-.plane {
+/* .plane {
     position: absolute;
     animation: planeAni 3s 1 linear;
 }
@@ -64,7 +64,7 @@ path:hover {
     100% {
         transform: translate(1000px, 0);
     }
-}
+} */
 
 .flying-route {
     margin: 0 12% 0 6%;
