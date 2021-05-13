@@ -59,15 +59,14 @@ const createString = (place, videoId) =>{
         '<div class="iw_inner" style="margin:10%">',
         '   <h3>', place.축제명, '</h3>',
         '   <iframe width="100%" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        '   <p>', place.장소, '<br />',
-                description, '<br />',
+        '   <p><b>장소</b>: ', place.장소, '<br />',
+               '<b>축제내용</b>: ' ,description, '<br />',
         '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
         '   </p>',
         
         '</div>'
     ].join('');
 }
-
 const createMarkerandViewer = (map, navermaps, place) => {
     const URL = "http://3.35.61.16:50816/searchYoutube"
     let mplace = new navermaps.LatLng(place.위도, place.경도);
