@@ -6,11 +6,14 @@ import Logo from "./components/Logo";
 import './styles/Logo.css'
 import Content from "./components/Content";
 import './styles/Content.css'
+import {RenderAfterNavermapsLoaded} from 'react-naver-maps';
 
 ReactDOM.render(
   <React.StrictMode>
     <Logo/>
-    <Content/>
+    <RenderAfterNavermapsLoaded clientId="kbcio1ltrh">
+      <Content/>
+    </RenderAfterNavermapsLoaded>
   </React.StrictMode>,
   document.getElementById('root')
 );
