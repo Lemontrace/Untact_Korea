@@ -39,7 +39,4 @@ def search_youtube(keyword):
 
     target = html[index: index + 100]
     videoId = target.split('"')[5]
-    if len(videoId) != 11:
-        # videoId 가 11자리가 아니면, 그냥 적당한 영상 id 를 돌려줌
-        return "W_z6esc8KQk"
     return videoId
