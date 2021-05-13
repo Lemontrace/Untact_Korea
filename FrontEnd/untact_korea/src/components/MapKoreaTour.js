@@ -2,7 +2,7 @@ import React, {createElement, useEffect, useState} from "react";
 import s from "../styles/lighter.png"
 const axios = require("axios");
 
-export function MapKorea(props) {
+export function MapKoreaTour(props) {
     const navermaps = window.naver.maps; 
 
     const {markerloc} = props;
@@ -15,7 +15,7 @@ export function MapKorea(props) {
         console.log("loaded!!")
         nmap = document.getElementById("kmap")
         let map = new navermaps.Map(nmap, {
-            center: new navermaps.LatLng(markerloc[3].위도, markerloc[3].경도),
+            center: new navermaps.LatLng(markerloc[5].위도, markerloc[5].경도),
             zoom: 9
         })
 
@@ -39,13 +39,11 @@ export function MapKorea(props) {
 const createString = (place, videoId) =>{
     return [
         '<div class="iw_inner">',
-        '   <h3>', place.축제명, '</h3>',
+        '   <h3>', place.관광지명, '</h3>',
         '   <iframe width="400" height="240" src="https://www.youtube.com/embed/', videoId, '" title="untactravel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        '   <p>', place.장소, '<br />',
-                place.축제내용, '<br />',
-        '       <a href="', place.홈피주소,'>', place.홈피주소,'</a>',
+        '   <p>', place.설명, '<br />',
+        '관리기관 전화번호: ',        place.관리기관전화번호, '<br />',
         '   </p>',
-        
         '</div>'
     ].join('');
 }
@@ -57,9 +55,9 @@ const createMarkerandViewer = (map, navermaps, place) => {
     let marker = new navermaps.Marker({
         map: map,
         position: mplace,
-        title: place.축제명,
-        splace: place.장소,
-        detail: place.축제내용,
+        title: place.관광지명,
+        splace: place.설명,
+        detail: place.설명,
         animation: navermaps.Animation.DROP,
         icon: {
             url: s,
@@ -78,7 +76,7 @@ const createMarkerandViewer = (map, navermaps, place) => {
         } else {
             axios.get(URL, {
                 params: {
-                    keyword: place.축제명
+                    keyword: place.관광지명
                 }
             }).then(res =>{
                 infowindow.setContent(createString(place, res.data));
