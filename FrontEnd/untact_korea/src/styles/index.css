@@ -1,10 +1,12 @@
 body {
-  margin: 0;
+  margin: 19% 16% 10% 16%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("../styles/pageBackground.png");
+  background-size: 100%;
 }
 
 code {

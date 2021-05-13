@@ -1,3 +1,8 @@
+.content{
+    height: 100%;
+    width: 100%;
+}
+
 path{
     fill: gainsboro;
     stroke: white;
@@ -8,15 +13,9 @@ path:hover {
     fill: orange;
 }
 
-.maps {
-    width: 100%;
-    height: 600px;
-    background-color: white;
-    border-color: black;
-}
-
 .plane-animation {
-    margin: 24px 5%;
+    height: 31%;
+    margin: 5% 0% 34% 0%;
 }
 
 .plane {
@@ -72,19 +71,19 @@ path:hover {
 }
 
 .local-map-border {
-    margin: 100px 5% 0 5%;
-    padding: 24px;
-    background-color: #F8FFA7;
+    bottom: 100%;
+    width: 100%;
+    padding: 11px;
+    background-color: black;
 }
 
 .local-map {
     width: 100%;
-    height: 1000px;
+    padding-bottom: 60%;
     background-color: white;
 }
 
-.maps-border {
-    margin: 100px 5% 0 5%;
-    padding: 24px;
-    background-color: #F8FFA7;
+.full-map-mapper {
+    border: 11px solid;
+    border-color: black;
 }
