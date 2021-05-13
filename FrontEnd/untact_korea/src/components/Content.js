@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from "topojson";
 import {useEffect} from "react";
+import KContent from "./KContent";
 
 export default function Content() {
   useEffect(()=>{
@@ -18,7 +19,7 @@ export default function Content() {
 
       <div className="local-map-border">
         <div className="local-map">
-
+          <KContent/>
         </div>
       </div>
     </main>

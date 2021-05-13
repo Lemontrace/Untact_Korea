@@ -16,7 +16,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Logo/>
     <Content/>
-    <KContent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
